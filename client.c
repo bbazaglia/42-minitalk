@@ -24,16 +24,17 @@ void	send_bit(int pid, int bit)
 }
 
 // This function sends a single character (8 bits) to the server process.
-void	send_char(int pid, char c)
+void	send_char(int pid, unsigned char c)
 {
 	int	i;
 
-	i = 0;
-	while (i < 8)
+	i = 7;
+	while (i >= 0)
 	{
-		// The bit is obtained by shifting the character to the right by 'i' positions and bitwise ANDing with 1.
+		// // The bit is obtained by shifting the character to the right by 'i' positions and bitwise ANDing with 1.
 		send_bit(pid, (c >> i) & 1);
-		i++;
+		usleep(500);
+		i--;
 	}
 }
 
@@ -65,9 +66,6 @@ int	main(int argc, char **argv)
 	// Check if the third argument is a non-empty string.
 	if (!argv[2])
 		exit(printf("Empty string\n"));
-
-	// Print the PID of the client process.
-	printf("CLIENT PID: %d\n", getpid());
 	 
 	// Send the string to the server process.
 	send_string(pid, argv[2]);

@@ -30,8 +30,8 @@ void	handle_signal(int signal, siginfo_t *info, void *ucontext)
 		character = 0;
 	}
 	// If less than 8 bits have been received, print the bit count for debugging purposes.
-	else
-		printf("Received bit %d\n", bit_count);
+	// else
+	// 	printf("Received bit %d\n", bit_count);
 }
 
 int	main(void)
