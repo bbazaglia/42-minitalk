@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+
 void	handle_signal(int signum)
 {
 	static char	character = 0;
