@@ -42,8 +42,6 @@ int	main(int argc, char **argv)
 	int pid = atoi(argv[1]);
 	if (pid <= 0)
 		exit(printf("Invalid PID: %s\n", argv[1]));
-	if (!argv[2])
-		exit(printf("Empty string\n"));
 	send_string(pid, argv[2]);
 	return (0);
 }
