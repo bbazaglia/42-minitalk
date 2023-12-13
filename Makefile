@@ -1,10 +1,24 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: bbazagli <bbazagli@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/12/12 15:11:18 by bbazagli          #+#    #+#              #
+#    Updated: 2023/12/12 15:44:58 by bbazagli         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 CC = cc
 CFLAGS = -Wextra -Wall -Werror
+INCLUDE = -I ./include -I ./LIBFT/include
+LIBFT = ./LIBFT/libft.a
 
-SRC_C = client.c
-SRC_S = server.c
-BONUS_SRC_C = client_bonus.c
-BONUS_SRC_S = server_bonus.c
+SRC_C = mandatory/client.c
+SRC_S = mandatory/server.c
+BONUS_SRC_C = bonus/client_bonus.c
+BONUS_SRC_S = bonus/server_bonus.c
 
 OBJ = obj
 
@@ -13,32 +27,37 @@ SRCOBJ_S = $(SRC_S:%.c=${OBJ}/%.o)
 SRCOBJ_BONUS_C = $(BONUS_SRC_C:%.c=${OBJ}/%.o)
 SRCOBJ_BONUS_S = $(BONUS_SRC_S:%.c=${OBJ}/%.o)
 
-all: client server
+all: libft client server
 
 client: $(SRCOBJ_C)
-	@$(CC) $^ -o client
+	@$(CC) $^ $(LIBFT) -o client
 
 server: $(SRCOBJ_S)
-	@$(CC) $^ -o server
+	@$(CC) $^ $(LIBFT) -o server
 
-bonus: server_bonus client_bonus 
+bonus: libft client_bonus server_bonus
 
 client_bonus: $(SRCOBJ_BONUS_C)
-	@$(CC) $^ -o client_bonus
+	@$(CC) $^ $(LIBFT) -o client_bonus
 
 server_bonus: $(SRCOBJ_BONUS_S)
-	@$(CC) $^ -o server_bonus
+	@$(CC) $^ $(LIBFT) -o server_bonus
 
 ${OBJ}/%.o : %.c
-	@mkdir -p $(OBJ)	
-	@$(CC) $(CFLAGS) -c $< -o $@ && printf "Compiling: $(notdir $<\n)"
+	@mkdir -p $(dir $@)	
+	@$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDE) && printf "Compiling: $(notdir $<\n)"
+
+libft:
+	@make -C ./LIBFT 
 
 clean:
+	@make -C ./LIBFT clean
 	@rm -rf $(OBJ)
 
 fclean: clean
+	@make -C ./LIBFT fclean
 	@rm -rf client server client_bonus server_bonus
 
 re: fclean all
 
-.PHONY: all, clean, fclean, re
+.PHONY: all, clean, fclean, re, libft, bonus
