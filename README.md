@@ -4,7 +4,7 @@
 
 ## 💡 About the project
 
-• You must create a communication program in the form of a client and a server.
+You must create a communication program in the form of a client and a server.
 
 I've written an article that provides detailed guidance on developing this project. 
 You can access it on [Medium](https://medium.com/@beatrizbazaglia/minitalk-6176322eb954)
