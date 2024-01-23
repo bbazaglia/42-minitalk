@@ -17,7 +17,9 @@ You can access it on [Medium](https://medium.com/@beatrizbazaglia/minitalk-61763
 After its launch, it has to print its PID.
 
 • The client takes two parameters:
+
    ◦ The server PID.
+   
    ◦ The string to send.
    
 • The client must send the string passed as a parameter to the server.
