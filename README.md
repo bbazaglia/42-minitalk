@@ -16,11 +16,7 @@ You can access it on [Medium](https://medium.com/@beatrizbazaglia/minitalk-61763
 • The server must be started first. 
 After its launch, it has to print its PID.
 
-• The client takes two parameters:
-
-   ◦ 	The server PID.
-   
-   ◦ 	The string to send.
+• The client takes two parameters: 1) The server PID; 2) The string to send.
    
 • The client must send the string passed as a parameter to the server.
 Once the string has been received, the server must print it.
