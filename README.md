@@ -12,6 +12,7 @@ You can access it on [Medium](https://medium.com/@beatrizbazaglia/minitalk-61763
 ## 🛠️ Requirements
 
 **Mandatory part:**
+
 • The server must be started first. 
 After its launch, it has to print its PID.
 
@@ -29,6 +30,7 @@ Once the string has been received, the server must print it.
 • You can only use these two signals: SIGUSR1 and SIGUSR2.
 
 **Bonus part:**
+
 • The server acknowledges every message received by sending back a signal to the
 client.
 • Unicode characters support!
