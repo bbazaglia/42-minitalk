@@ -2,16 +2,6 @@
 	💬 minitalk
 </h1>
 
-<h3 align="center">
-	<a href="#%EF%B8%8F-about">About</a>
-	<span> · </span>
-	<a href="#%EF%B8%8F-usage">Usage</a>
-	<span> · </span>
-	<a href="#-testing">Testing</a>
-</h3>
-
----
-
 ## 💡 About the project
 
 • You must create a communication program in the form of a client and a server.
@@ -20,8 +10,6 @@ I've written an article that provides detailed guidance on developing this proje
 You can access it on [Medium](https://medium.com/@beatrizbazaglia/minitalk-6176322eb954)
 
 ## 🛠️ Requirements
-
-### Requirements
 
 **Mandatory part:**
 • The server must be started first. 
